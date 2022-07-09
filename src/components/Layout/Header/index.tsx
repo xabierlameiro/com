@@ -1,7 +1,8 @@
 import Nav from './Nav'
+import styles from './header.module.scss'
 
 const Header = () => (
-	<header data-testid="header">
+	<header className={styles.header} data-testid="header">
 		<Nav />
 	</header>
 )

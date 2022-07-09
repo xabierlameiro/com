@@ -1,3 +1,3 @@
-const Footer = () => <h1 data-testid="footer">Footer</h1>;
+const Footer = () => <footer data-testid="footer">Footer</footer>
 
-export default Footer;
+export default Footer

@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-	styledComponents: true,
 	reactStrictMode: true,
 	experimental: { esmExternals: true },
 	eslint: {

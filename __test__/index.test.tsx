@@ -1,5 +1,5 @@
 import { renderWithLayout, screen } from '../jest.setup'
-import HomePage from '../pages/index'
+import HomePage from '../pages'
 
 describe('Home page', () => {
 	it('should render the correct sections', () => {

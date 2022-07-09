@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
-import styles from './layout.module.scss'
 
 type Props = {
 	children: ReactElement

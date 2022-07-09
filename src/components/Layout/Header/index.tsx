@@ -1,3 +1,9 @@
-const Header = () => <h1 data-testid="header">Header</h1>;
+import Nav from './Nav'
 
-export default Header;
+const Header = () => (
+	<h1 data-testid="header">
+		<Nav />
+	</h1>
+)
+
+export default Header

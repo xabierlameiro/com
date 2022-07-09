@@ -1,3 +1,11 @@
-export const Thing = () => <>World</>
+import Layout from '@/layout'
+
+export const Thing = () => <>MDX</>
+
+export const meta = {
+	title: 'Test MDX',
+}
 
 # Hello <Thing />
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

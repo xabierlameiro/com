@@ -21,6 +21,7 @@
 			"@/utils/*": ["src/utils/*"],
 			"@/configs/*": ["src/configs/*"],
 			"@/components/*": ["src/components/*"],
+      "@/layout": ["src/components/Layout/index.tsx"],
 			"@/constants/*": ["src/constants/*"],
 			"@/styles/*": ["styles/*"]
 		}

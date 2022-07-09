@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Layout from './pages/components/Layout'
+import Layout from '@/layout'
 
 const AllTheProviders = ({ children }) => {
 	return <>{children}</>

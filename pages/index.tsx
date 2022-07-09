@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from './_app'
-import Layout from './components/Layout'
+import Layout from '@/components/Layout'
 import styled from 'styled-components'
 
 const Title = styled.h1`

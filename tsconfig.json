@@ -13,7 +13,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+			"@/src": ["src/*"],
+			"@/hooks/*": ["src/hooks/*"],
+			"@/utils/*": ["src/utils/*"],
+			"@/configs/*": ["src/configs/*"],
+			"@/components/*": ["src/components/*"],
+			"@/constants/*": ["src/constants/*"],
+			"@/styles/*": ["styles/*"]
+		}
   },
   "include": ["./jest.setup.js","next-env.d.ts", "**/*.ts", "**/*.tsx","**/*.mdx"],
   "exclude": ["node_modules"]

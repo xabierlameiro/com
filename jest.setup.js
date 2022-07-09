@@ -1,12 +1,14 @@
-import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import Layout from './pages/components/Layout'
 
 const AllTheProviders = ({ children }) => {
-  return <>{children}</>;
-};
+	return <>{children}</>
+}
+const customRender = (ui, options) => render(ui, { wrapper: AllTheProviders, ...options })
 
-const customRender = (ui, options) =>
-  render(ui, { wrapper: AllTheProviders, ...options });
+const renderWithLayout = (ui, options) =>
+	render(ui, { wrapper: ({ children }) => <Layout>{children}</Layout>, ...options })
 
-export * from "@testing-library/react";
-export { customRender as render };
+export * from '@testing-library/react'
+export { customRender as render, renderWithLayout }

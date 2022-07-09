@@ -1,18 +1,20 @@
-import type { NextPage } from "next";
-import React from "react";
+import type { ReactElement } from 'react'
+import type { NextPageWithLayout } from './_app'
+import Layout from './components/Layout'
+import styled from 'styled-components'
 
-const Header = () => <h1 data-testid="header">Header</h1>;
-const Main = () => <h1 data-testid="main">Main Content</h1>;
-const Footer = () => <h1 data-testid="footer">Footer</h1>;
+const Title = styled.h1`
+	font-size: 1.5em;
+	text-align: center;
+	color: palevioletred;
+`
 
-const Home: NextPage = () => {
-  return (
-    <React.Fragment>
-      <Header />
-      <Main />
-      <Footer />
-    </React.Fragment>
-  );
-};
+const HomePage: NextPageWithLayout = () => {
+	return <Title>main</Title>
+}
 
-export default Home;
+HomePage.getLayout = function getLayout(page: ReactElement) {
+	return <Layout>{page}</Layout>
+}
+
+export default HomePage

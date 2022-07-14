@@ -16,6 +16,7 @@ const nextConfig = {
 					options: {
 						rehypePlugins: [],
 						remarkPlugins: [],
+						providerImportSource: '@mdx-js/react',
 					},
 				},
 			],

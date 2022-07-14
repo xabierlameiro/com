@@ -1,0 +1,21 @@
+.h1 {
+	color: var(--primary-font-color);
+	font-size: clamp(2rem, 10vw, 4rem);
+	transition: all 0.2s linear;
+
+	&:hover {
+		color: #000;
+	}
+}
+
+.article {
+	color: var(--primary-font-color);
+}
+
+.section {
+	width: clamp(200px, 50vw, 900px);
+	height: 70vh;
+	overflow: scroll;
+	align-self: center;
+	padding: 0 2em;
+}

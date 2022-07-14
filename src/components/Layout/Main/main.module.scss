@@ -1,3 +1,8 @@
 .main {
-	background-color: var(--background);
+	background-image: url('/background.jpeg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: inherit;
+	display: grid;
 }

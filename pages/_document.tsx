@@ -18,7 +18,14 @@ class MyDocument extends Document {
 		// nivel con el provider de contexto
 		return (
 			<Html data-theme="light">
-				<Head />
+				<Head>
+					<link rel="preconnect" href="https://fonts.googleapis.com" />
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+					<link
+						href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap"
+						rel="stylesheet"
+					/>
+				</Head>
 				<body>
 					<Main />
 					<NextScript />

@@ -1,8 +1,15 @@
 .main {
 	background-image: url('/background.jpeg');
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: right;
 	background-size: cover;
 	height: inherit;
 	display: grid;
+	overflow: hidden;
+	@media only screen and (max-device-width: 550px) {
+		width: 135%;
+	}
+	@media only screen and (max-width: 412px) {
+		width: 135%;
+	}
 }

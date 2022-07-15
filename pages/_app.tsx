@@ -19,10 +19,32 @@ const Article = (props: PropsWithChildren) => (
 const Container = (props: PropsWithChildren) => (
 	<section className={styles.section}>{props.children}</section>
 )
+type Props = PropsWithChildren & {
+	indexByDefault: number
+}
+const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
+	const [selected, setSelected] = React.useState(indexByDefault)
+	const maxChildrens = React.Children.count(children) - 1
+
+	return (
+		<React.Fragment>
+			{selected > indexByDefault && (
+				<button onClick={() => setSelected((selected) => selected - 1)}>prev</button>
+			)}
+			{selected < maxChildrens && (
+				<button onClick={() => setSelected((selected) => selected + 1)}>next</button>
+			)}
+			<nav className={styles.nav}>
+				{React.Children.map(children, (child, index) => (index === selected ? child : null))}
+			</nav>
+		</React.Fragment>
+	)
+}
 
 const components = {
 	Article: Article,
 	Container: Container,
+	NavContainer: NavContainer,
 	h1: (props: PropsWithChildren) => <h1 className={styles.h1}>{props.children}</h1>,
 }
 

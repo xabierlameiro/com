@@ -1,11 +1,6 @@
 .h1 {
 	color: var(--primary-font-color);
 	font-size: clamp(2rem, 10vw, 4rem);
-	transition: all 0.2s linear;
-
-	&:hover {
-		color: #000;
-	}
 }
 
 .article {
@@ -13,9 +8,16 @@
 }
 
 .section {
-	width: clamp(200px, 50vw, 900px);
-	height: 70vh;
-	overflow: scroll;
+	width: 100%;
+	max-width: 1000px;
 	align-self: center;
 	padding: 0 2em;
+	@media only screen and (max-device-width: 412px) {
+		padding: 0 1.2em;
+	}
+}
+
+.nav {
+	overflow: scroll;
+	height: 70vh;
 }

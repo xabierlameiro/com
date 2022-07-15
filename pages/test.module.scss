@@ -5,10 +5,11 @@
 
 .article {
 	color: var(--primary-font-color);
+	font-size: 20px;
 }
 
 .section {
-	width: 100%;
+	width: 100vw;
 	max-width: 1000px;
 	align-self: center;
 	padding: 0 2em;
@@ -20,4 +21,22 @@
 .nav {
 	overflow: scroll;
 	height: 70vh;
+}
+
+.navControls {
+	display: flex;
+	justify-content: right;
+	svg path {
+		color: var(--primary-font-color);
+		stroke-width: 0;
+	}
+
+	.enabled {
+		cursor: pointer;
+	}
+
+	.disabled {
+		pointer-events: none;
+		opacity: 0.4;
+	}
 }

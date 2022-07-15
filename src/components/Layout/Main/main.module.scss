@@ -6,6 +6,9 @@
 	height: inherit;
 	display: grid;
 	overflow: hidden;
+	width: 110%;
+	transition: width 1s;
+
 	@media only screen and (max-device-width: 550px) {
 		width: 135%;
 	}

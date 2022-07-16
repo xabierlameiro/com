@@ -5,6 +5,7 @@ import type { ReactElement, ReactNode, PropsWithChildren } from 'react'
 import { MdOutlineNavigateBefore, MdNavigateNext } from 'react-icons/md'
 import { MDXProvider } from '@mdx-js/react'
 import Modal from '@/components/Modal'
+import VisibilityManager from '@/components/VisibilityManager'
 import './global.scss'
 import styles from './test.module.scss'
 
@@ -32,29 +33,39 @@ const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
 	const disabled = selected > indexByDefault ? styles.enabled : styles.disabled
 	const disabled2 = selected < maxChildrens ? styles.enabled : styles.disabled
 
+	const Content = (): ReactElement => {
+		return (
+			<React.Fragment>
+				<div className={styles.navControls}>
+					<MdOutlineNavigateBefore
+						className={disabled}
+						size={35}
+						onClick={() => setSelected((selected) => selected - 1)}
+					/>
+
+					<MdNavigateNext
+						className={disabled2}
+						size={35}
+						color="white"
+						onClick={() => setSelected((selected) => selected + 1)}
+					/>
+				</div>
+				<nav className={styles.nav}>
+					{React.Children.map(children, (child, index) => (index === selected ? child : null))}
+				</nav>
+			</React.Fragment>
+		)
+	}
+
 	return (
 		<React.Fragment>
 			<Modal isOpen={open} onClose={() => setOpen(false)}>
-				<h1>juan</h1>
+				<Content />
 			</Modal>
 			<button onClick={() => setOpen((open) => !open)}>SETOPEN</button>
-			<div className={styles.navControls}>
-				<MdOutlineNavigateBefore
-					className={disabled}
-					size={35}
-					onClick={() => setSelected((selected) => selected - 1)}
-				/>
-
-				<MdNavigateNext
-					className={disabled2}
-					size={35}
-					color="white"
-					onClick={() => setSelected((selected) => selected + 1)}
-				/>
-			</div>
-			<nav className={styles.nav}>
-				{React.Children.map(children, (child, index) => (index === selected ? child : null))}
-			</nav>
+			<VisibilityManager hideOnMobile hideOnTablet>
+				<Content />
+			</VisibilityManager>
 		</React.Fragment>
 	)
 }

@@ -6,13 +6,12 @@
 	height: inherit;
 	display: grid;
 	overflow: hidden;
-	width: 110%;
-	transition: width 1s;
+	transition: background-position 1s;
 
 	@media only screen and (max-device-width: 550px) {
-		width: 135%;
+		background-position: -800px 0;
 	}
 	@media only screen and (max-width: 412px) {
-		width: 135%;
+		background-position: -800px 0;
 	}
 }

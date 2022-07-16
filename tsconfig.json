@@ -23,7 +23,8 @@
 			"@/components/*": ["src/components/*"],
       "@/layout": ["src/components/Layout/index.tsx"],
 			"@/constants/*": ["src/constants/*"],
-			"@/styles/*": ["styles/*"]
+			"@/styles/*": ["styles/*"],
+      "@/test": ["./jest.setup.js"],
 		}
   },
   "include": ["./jest.setup.js","next-env.d.ts", "**/*.ts", "**/*.tsx","**/*.mdx"],

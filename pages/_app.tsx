@@ -59,10 +59,12 @@ const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
 
 	return (
 		<React.Fragment>
-			<Modal isOpen={open} onClose={() => setOpen(false)}>
-				<Content />
-			</Modal>
-			<button onClick={() => setOpen((open) => !open)}>SETOPEN</button>
+			<VisibilityManager hideOnDesktop>
+				<Modal isOpen={open} onClose={() => setOpen(false)}>
+					<Content />
+				</Modal>
+				<button onClick={() => setOpen((open) => !open)}>SETOPEN</button>
+			</VisibilityManager>
 			<VisibilityManager hideOnMobile hideOnTablet>
 				<Content />
 			</VisibilityManager>

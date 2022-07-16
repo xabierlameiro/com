@@ -3,7 +3,7 @@ import useWindowResize from '@/hooks/useWidowResize'
 import { mobileMax, tabletMax, tabletMin, desktopMin } from '@/constants/devices'
 
 type Props = {
-	children: ReactElement
+	children: ReactElement | ReactElement[]
 	hideOnDesktop?: boolean
 	hideOnTablet?: boolean
 	hideOnMobile?: boolean
@@ -24,7 +24,7 @@ const VisibilityManager = (props: Props): ReactElement | null => {
 		return null
 	}
 
-	return children
+	return <>{children}</>
 }
 
 export default VisibilityManager

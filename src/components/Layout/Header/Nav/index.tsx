@@ -9,6 +9,9 @@ export default function Nav() {
 			<li>
 				<Link href="/">Home</Link>
 			</li>
+			<li>
+				<Link href="/coverage">Coverage</Link>
+			</li>
 		</ul>
 	)
 }

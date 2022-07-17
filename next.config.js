@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+	rewrites: async () => {
+		return [
+			{
+				source: '/:coverage',
+				destination: '/:coverage/index.html',
+			},
+		]
+	},
 	reactStrictMode: true,
 	experimental: { esmExternals: true },
 	eslint: {

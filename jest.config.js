@@ -6,6 +6,10 @@ const createJestConfig = nextJest({ dir: './' })
 
 // Any custom config you want to pass to Jest
 const customJestConfig = {
+	reporters: ['default', ['<rootDir>/custom-reporter.js', {}]],
+	coverageDirectory: 'public/coverage',
+	collectCoverage: true,
+	coverageReporters: ['json', 'html'],
 	setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 	testEnvironment: 'jsdom',
 	moduleNameMapper: {

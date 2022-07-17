@@ -5,7 +5,7 @@ type WindowTpe = {
 	height: number
 }
 
-const useWindowResize = (): WindowTpe => {
+function useWindowResize(): WindowTpe {
 	const [widowSize, setWindowSize] = React.useState({ width: 0, height: 0 } as WindowTpe)
 
 	React.useEffect(() => {

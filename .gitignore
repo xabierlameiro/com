@@ -37,3 +37,6 @@ yarn-error.log*
 # yarn
 yarn.lock
 yarn-error.log
+
+# public
+public/coverage

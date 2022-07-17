@@ -49,7 +49,7 @@ class CustomReporter {
 
 					replaced = replaced.replace(
 						/<div class='pad1'>\n\s*<h1>(.*)All files/g,
-						"<div class='pad1'><h1><a href='/coverage'>Todos los archivos</a>"
+						"<div class='pad1'><h1><a href='/'>Volver</a></h1></h1><h1><a href='/coverage'>Todos los archivos</a>"
 					)
 
 					replaced = replaced.replace(
@@ -65,6 +65,11 @@ class CustomReporter {
 					replaced = replaced.replace(
 						/(.*)<link rel="shortcut icon" (.*)\s* href="(.*)" \/>/,
 						'<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">'
+					)
+
+					replaced = replaced.replace(
+						/\.pad1 { padding: 10px; }/,
+						'.pad1 { padding: 10px; width: 100%; overflow: scroll; }'
 					)
 
 					fs.writeFile(path, replaced, 'utf-8', function (err, a) {

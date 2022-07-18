@@ -36,7 +36,7 @@ const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
 	const disabled = selected > indexByDefault ? styles.enabled : styles.disabled
 	const disabled2 = selected < maxChildrens ? styles.enabled : styles.disabled
 
-	const onDrag = (e: React.DragEvent<HTMLDivElement>): void => {
+	const onDrag = (e: any): void => {
 		e.stopPropagation()
 		const { clientX } = e
 		const isLeft = clientX < width / 2
@@ -66,7 +66,7 @@ const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
 						/>
 					</div>
 				</VisibilityManager>
-				<nav className={styles.nav} draggable="true" onDragStart={onDrag}>
+				<nav className={styles.nav} draggable="true" onDragStart={onDrag} onTouchStart={onDrag}>
 					{React.Children.map(children, (child, index) => (index === selected ? child : null))}
 				</nav>
 			</React.Fragment>

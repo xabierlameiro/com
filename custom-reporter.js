@@ -16,7 +16,7 @@ class CustomReporter {
 						console.log('err', err)
 						return
 					}
-
+					// TODO - refactor on isolated function
 					var months = [
 						'Enero',
 						'Febrero',

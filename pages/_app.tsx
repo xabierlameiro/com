@@ -36,15 +36,16 @@ const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
 	const disabled = selected > indexByDefault ? styles.enabled : styles.disabled
 	const disabled2 = selected < maxChildrens ? styles.enabled : styles.disabled
 
-	const touchAndDrag = (e: any): void => {
-		e.stopPropagation()
-		const clientX = e.clientX ?? e.changedTouches[0].clientX
-		const isLeft = clientX < width / 2
-		if (isLeft) {
-			setSelected(selected - 1)
-		} else {
-			setSelected(selected + 1)
-		}
+	const goToPrevPage = () => setSelected((selected) => (selected > 0 ? selected - 1 : 0))
+	const gotoNextPage = () =>
+		setSelected((selected) => (selected < maxChildrens ? selected + 1 : maxChildrens))
+
+	type touchAndDragType = React.TouchEvent<HTMLElement> & React.DragEvent<HTMLButtonElement>
+
+	const touchAndDrag = (event: touchAndDragType) => {
+		const screenXposition = event.clientX ?? event.changedTouches[0].clientX
+		const isLeft = screenXposition < width / 2
+		return isLeft ? goToPrevPage() : gotoNextPage()
 	}
 
 	const Content = (): ReactElement => {
@@ -52,25 +53,12 @@ const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
 			<React.Fragment>
 				<VisibilityManager hideOnMobile hideOnTablet>
 					<div className={styles.navControls}>
-						<MdOutlineNavigateBefore
-							className={disabled}
-							size={35}
-							onClick={() => setSelected((selected) => selected - 1)}
-						/>
+						<MdOutlineNavigateBefore className={disabled} size={35} onClick={goToPrevPage} />
 
-						<MdNavigateNext
-							className={disabled2}
-							size={35}
-							color="white"
-							onClick={() => setSelected((selected) => selected + 1)}
-						/>
+						<MdNavigateNext className={disabled2} size={35} color="white" onClick={gotoNextPage} />
 					</div>
 				</VisibilityManager>
-				<nav
-					className={styles.nav}
-					draggable="true"
-					onDragStart={touchAndDrag}
-					onTouchEnd={touchAndDrag}>
+				<nav className={styles.nav} onDragStart={touchAndDrag} onTouchEnd={touchAndDrag}>
 					{React.Children.map(children, (child, index) => (index === selected ? child : null))}
 				</nav>
 			</React.Fragment>

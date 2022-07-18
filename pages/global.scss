@@ -32,18 +32,6 @@ body {
 #__next {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
-	background-image: url('/background.jpeg');
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size: cover;
-	overflow: hidden;
-	transition: background-position 1s;
-	@media only screen and (max-device-width: 550px) {
-		background-position: -800px 0;
-	}
-	@media only screen and (max-width: 412px) {
-		background-position: -800px 0;
-	}
 }
 
 // themes

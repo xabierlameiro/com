@@ -58,7 +58,7 @@ const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
 						<MdNavigateNext className={disabled2} size={35} color="white" onClick={gotoNextPage} />
 					</div>
 				</VisibilityManager>
-				<nav className={styles.nav} onDragStart={touchAndDrag} onTouchEnd={touchAndDrag}>
+				<nav draggable className={styles.nav} onDragStart={touchAndDrag} onTouchEnd={touchAndDrag}>
 					{React.Children.map(children, (child, index) => (index === selected ? child : null))}
 				</nav>
 			</React.Fragment>

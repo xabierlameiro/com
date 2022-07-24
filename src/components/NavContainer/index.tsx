@@ -7,7 +7,7 @@ import styles from './navContainer.module.scss'
 
 import type { ReactElement, PropsWithChildren } from 'react'
 type Props = PropsWithChildren & {
-	indexByDefault: number
+	indexByDefault?: number
 }
 const NavContainer = ({ children, indexByDefault = 0 }: Props) => {
 	const { width } = useWindowResize()

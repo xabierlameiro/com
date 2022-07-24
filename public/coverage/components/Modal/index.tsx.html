@@ -18,34 +18,34 @@
     
 <body>
 <div class='wrapper'>
-    <div class='pad1'><h1><a href='/'>Volver</a></h1></h1><h1><a href='/coverage'>Todos los archivos</a></a> / <a href="index.html">components/VisibilityManager</a> index.tsx</h1>
+    <div class='pad1'><h1><a href='/'>Volver</a></h1></h1><h1><a href='/coverage'>Todos los archivos</a></a> / <a href="index.html">components/Modal</a> index.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -92,9 +92,27 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -103,55 +121,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { ReactElement } from 'react'
-import useWindowResize from '@/hooks/useWidowResize'
-import { mobileMax, tabletMax, tabletMin, desktopMin } from '@/constants/devices'
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
+import type { ReactElement } from 'react'
+import { createPortal } from 'react-dom'
+import { IoMdClose } from 'react-icons/io'
+import styles from './modal.module.scss'
 &nbsp;
-type Props = {
-	children: ReactElement | ReactElement[]
-	hideOnDesktop?: boolean
-	hideOnTablet?: boolean
-	hideOnMobile?: boolean
+type ModalProps = {
+	children: ReactElement
+	isOpen: boolean
+	onClose: () =&gt; void
 }
 &nbsp;
-const VisibilityManager = (props: Props): ReactElement | null =&gt; {
-	const { children, hideOnDesktop, hideOnTablet, hideOnMobile } = props
-	const { width } = useWindowResize()
+const Modal = ({ children, isOpen, onClose }: ModalProps): ReactElement | null =&gt; {
+	const [isCSR, setIsCSR] = React.useState(false)
 &nbsp;
-	const isMobile = width &lt;= mobileMax
-	const isTablet = width &lt;= tabletMax &amp;&amp; width &gt;= tabletMin
-	const isDesktop = width &gt;= desktopMin
+	React.useEffect(() =&gt; {
+		setIsCSR(true)
+	}, [])
 &nbsp;
-	const hideBecauseOfWidth =
-		(hideOnDesktop &amp;&amp; isDesktop) || (hideOnTablet &amp;&amp; isTablet) || (hideOnMobile &amp;&amp; isMobile)
-&nbsp;
-	if (hideBecauseOfWidth) {
-		return null
-	}
-&nbsp;
-	return &lt;&gt;{children}&lt;/&gt;
+	return isCSR
+		? <span class="branch-0 cbranch-no" title="branch not covered" >createPortal(</span>
+				&lt;dialog data-testid="dialog" className={styles.dialog} open={isOpen}&gt;
+					&lt;IoMdClose onClick={onClose} /&gt;
+					{children}
+				&lt;/dialog&gt;,
+				document.getElementById('dialog') as Element
+		  )
+		: null
 }
 &nbsp;
-export default VisibilityManager
+export default Modal
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

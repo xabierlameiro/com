@@ -1,0 +1,22 @@
+.nav {
+	overflow: scroll;
+	height: 70vh;
+}
+
+.navControls {
+	display: flex;
+	justify-content: right;
+	svg path {
+		color: var(--primary-font-color);
+		stroke-width: 0;
+	}
+
+	.enabled {
+		cursor: pointer;
+	}
+
+	.disabled {
+		pointer-events: none;
+		opacity: 0.4;
+	}
+}

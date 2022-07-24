@@ -16,7 +16,7 @@ export default function Layout({ children, meta }: Props) {
 	return (
 		<>
 			<Head>
-				<title>{meta?.title ?? 'Dont have meta title'}</title>
+				<title data-testid="meta-title">{meta?.title ?? 'Dont have meta title'}</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 			<Image

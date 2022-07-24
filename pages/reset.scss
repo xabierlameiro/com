@@ -6,6 +6,10 @@
 	user-select: none;
 }
 
+*:focus {
+	outline: none;
+}
+
 /* Remove default margin */
 body,
 h1,
@@ -29,6 +33,10 @@ ol[role='list'] {
 /* Set core root defaults */
 html:focus-within {
 	scroll-behavior: smooth;
+}
+
+html {
+	box-sizing: border-box;
 }
 
 /* Set core body defaults */

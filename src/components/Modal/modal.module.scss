@@ -1,6 +1,7 @@
 .dialog {
-	background-color: green;
+	background-color: var(--background);
 	width: 100vw;
 	height: 100vh;
 	z-index: 2;
+	color: black;
 }

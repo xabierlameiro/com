@@ -1,0 +1,9 @@
+.section {
+	width: 100vw;
+	max-width: 1000px;
+	align-self: center;
+	padding: 0 2em;
+	@media only screen and (max-device-width: 412px) {
+		padding: 0 1.2em;
+	}
+}
